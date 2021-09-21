@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import Screen from '../components/Screen';
 import tailwind from 'tailwind-react-native-classnames';
 
@@ -17,6 +17,5 @@ const GroceryScreen = () => {
     );
 }
 
-const styles = StyleSheet.create({})
 
 export default GroceryScreen;

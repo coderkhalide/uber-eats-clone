@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, ScrollView, Alert, ActivityIndicator } from 'react-native';
+import { ScrollView, Alert, ActivityIndicator } from 'react-native';
 import HeaderTabs from '../components/HeaderTabs';
 import Screen from '../components/Screen'
 import Categories from '../components/Categories'
@@ -57,7 +57,5 @@ const HomeScreen = () => {
         </Screen>
     );
 }
-
-const styles = StyleSheet.create({})
 
 export default HomeScreen;

@@ -9,7 +9,7 @@ import AppSubmitButton from "../components/forms/AppSubmitButton";
 import { auth } from "../configs/firebase";
 import tailwind from 'tailwind-react-native-classnames';
 
-const loginValidationSchema = yup.object().shape({
+const ValidationSchema = yup.object().shape({
   name: yup
     .string()
     .min(3, ({ min }) => `Name must be at least ${min} characters`)
@@ -65,7 +65,7 @@ function SignupScreen({ navigation }) {
         <View style={styles.form}>
           <AppForm
             initialValues={{ name: "", email: "", password: "" }}
-            validationSchema={loginValidationSchema}
+            validationSchema={ValidationSchema}
             onSubmit={(values) => signUpUser(values)}
           >
             <AppFormFeilds

@@ -9,7 +9,6 @@ export default {
     dark: '#0c0c0c',
     denger: '#E81A1A',
     title: '#0c0c0c',
-    brandTransprent: '#f8b71820',
     activeTintColor: "#000",
     inActiveTintColor: "#AEAEAE"
 }
