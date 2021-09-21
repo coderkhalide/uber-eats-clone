@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text, Modal } from 'react-native';
 import Screen from '../components/Screen'
 import tailwind from 'tailwind-react-native-classnames';
 import AppHead from '../components/AppHead';
@@ -8,10 +8,12 @@ import { selectTotalItems, selectTotalPrice } from '../redux/slices/basketSlice'
 import { useSelector } from 'react-redux';
 import colors from '../configs/colors';
 import CartItems from '../components/CartItems'
+import CheckoutModal from '../components/CheckoutModal'
 
 const CartScreen = () => {
     const totalPrice = useSelector(selectTotalPrice)
     const getAllItems = useSelector(selectTotalItems)
+    const [modalVisible, setModalVisible] = useState(false)
 
     return (
         <Screen style={tailwind`flex-1 bg-white`}>
@@ -26,11 +28,13 @@ const CartScreen = () => {
                         <Text style={styles.totalAmount}>${totalPrice}</Text>
                     </View>
                     <View style={styles.right}>
-                        <AppButton title="Checkout" color="black" disabled={getAllItems.length ? false : true} />
+                        <AppButton title="Checkout" onPress={() => setModalVisible(true)} color="black" />
                     </View>
                 </View>
-
             )}
+            <Modal visible={modalVisible} animationType="slide" transparent={true}>
+                <CheckoutModal setModalVisible={setModalVisible} />
+            </Modal>
         </Screen>
     );
 }
