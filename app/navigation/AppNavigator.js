@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, logoutUser, selectUser } from '../redux/slices/authSlice';
 import AuthNavigator from './AuthNavigator';
-import MainTabNavigator from './MainTabNavigator';
 import { auth } from '../configs/firebase';
 import HomeNavigator from './HomeNavigator';
 

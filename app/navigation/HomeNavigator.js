@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import DetailsScreen from '../screens/DetailsScreen';
+import SuccessScreen from '../screens/SuccessScreen';
 import MainTabNavigator from './MainTabNavigator';
 
 const Stack = createStackNavigator();
@@ -14,6 +15,7 @@ export default function HomeNavigator() {
         >
             <Stack.Screen name="HomeScreen" component={MainTabNavigator} />
             <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+            <Stack.Screen name="SuccessScreen" component={SuccessScreen} />
         </Stack.Navigator>
     )
 }
