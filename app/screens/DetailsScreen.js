@@ -7,10 +7,16 @@ import tailwind from 'tailwind-react-native-classnames';
 import { Foundation } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import RestaurantMap from '../components/RestaurantMap'
+import MenuItems from '../components/MenuItems'
+import ViewCart from '../components/ViewCart';
+import { selectTotalItems, selectTotalPrice } from '../redux/slices/basketSlice';
+import { useSelector } from 'react-redux';
 
 const DetailsScreen = ({ route, navigation }) => {
     const [mapActive, setMapActive] = useState(false)
     const { categories, coordinates, image_url, name, price, rating, review_count } = route?.params?.item
+    const totalPrice = useSelector(selectTotalPrice)
+    const getAllItems = useSelector(selectTotalItems)
 
     return (
         <View style={styles.container}>
@@ -30,7 +36,7 @@ const DetailsScreen = ({ route, navigation }) => {
                     <View style={styles.header}>
                         <Text style={styles.title}>{name}</Text>
                         <TouchableOpacity onPress={() => setMapActive(e => !e)}>
-                            <Entypo name="location" size={24} color="black" />
+                            <Entypo name="location" size={24} color={`${mapActive ? colors.primary : '#000'}`} />
                         </TouchableOpacity>
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -55,8 +61,11 @@ const DetailsScreen = ({ route, navigation }) => {
                             <Text key={index} style={tailwind`text-xs text-gray-700`}><Text style={{ color: colors.primary }}>•</Text> {title}</Text>
                         ))}
                     </View>
+                    {/* MenuItems */}
+                    <MenuItems resName={name} resImage={image_url} />
                 </View>
             </ScrollView>
+            <ViewCart total={totalPrice} count={getAllItems.length} />
         </View>
     );
 }

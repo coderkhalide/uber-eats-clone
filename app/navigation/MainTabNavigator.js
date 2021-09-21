@@ -10,7 +10,6 @@ import BrowseScreen from '../screens/BrowseScreen';
 import CartScreen from '../screens/CartScreen';
 import GroceryScreen from '../screens/GroceryScreen';
 import AccountScreen from '../screens/AccountScreen';
-import HomeNavigator from './HomeNavigator';
 
 const Tab = createBottomTabNavigator()
 
@@ -26,12 +25,10 @@ const MainTabNavigator = () => {
                     paddingTop: 10,
                     paddingBottom: 10,
                     height: 60,
-                    borderTopRightRadius: 30,
-                    borderTopLeftRadius: 30,
                 },
             }}
         >
-            <Tab.Screen name="Home" component={HomeNavigator}
+            <Tab.Screen name="Home" component={HomeScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <AntDesign name="home" color={color} size={size} />

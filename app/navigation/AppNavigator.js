@@ -5,6 +5,7 @@ import { loginUser, logoutUser, selectUser } from '../redux/slices/authSlice';
 import AuthNavigator from './AuthNavigator';
 import MainTabNavigator from './MainTabNavigator';
 import { auth } from '../configs/firebase';
+import HomeNavigator from './HomeNavigator';
 
 export default function AppNavigator() {
     const user = useSelector(selectUser)
@@ -32,7 +33,7 @@ export default function AppNavigator() {
     return (
         <NavigationContainer>
             {user ? (
-                <MainTabNavigator />
+                <HomeNavigator />
             ) : (
                 <AuthNavigator />
             )}
