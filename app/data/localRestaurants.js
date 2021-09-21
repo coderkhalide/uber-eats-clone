@@ -7,7 +7,12 @@ export const localRestaurants = [
         price: "$$",
         reviews: 1244,
         rating: 4.5,
-        time: "10 - 20"
+        time: "10 - 20",
+        coordinates : {
+            latitude: 37.759958,
+            longitude: -122.435089
+        },
+        review_count: 400
     },
     {
         name: "Benihana",
@@ -18,6 +23,11 @@ export const localRestaurants = [
         reviews: 1244,
         time: "25 - 30",
         rating: 3.7,
+        coordinates : {
+            latitude: 37.759958,
+            longitude: -122.435089
+        },
+        review_count: 346
     },
     {
         name: "India's Grill",
@@ -27,6 +37,11 @@ export const localRestaurants = [
         time: "20 - 30",
         reviews: 700,
         rating: 4.9,
+        coordinates : {
+            latitude: 37.759958,
+            longitude: -122.435089
+        },
+        review_count: 7680
     },
     {
         name: "Kaji Farmd kitchen",
@@ -36,5 +51,10 @@ export const localRestaurants = [
         time: "20 - 30",
         reviews: 700,
         rating: 4.9,
+        coordinates : {
+            latitude: 37.759958,
+            longitude: -122.435089
+        },
+        review_count: 8796
     },
 ];

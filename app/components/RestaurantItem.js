@@ -3,24 +3,33 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import tailwind from 'tailwind-react-native-classnames';
 import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/core';
 
 const RestaurantItem = ({ restaurantData }) => {
-    return (
-        <View>
-            {restaurantData?.map((item, index) => (
-                <RestaurantItemCard key={index} item={item} />
-            ))}
-        </View>
-    );
+    const navigation = useNavigation()
+
+    const handlePress = (item) => {
+        navigation.navigate("DetailsScreen", {
+            item: {...item}
+        })
+    }
+
+return (
+    <View>
+        {restaurantData?.map((item, index) => (
+            <RestaurantItemCard key={index} item={item} onPress={() => handlePress(item)} />
+        ))}
+    </View>
+);
 }
 
 export default RestaurantItem;
 
-const RestaurantItemCard = ({ item }) => {
+const RestaurantItemCard = ({ item, onPress }) => {
     const [loved, setLoved] = useState(false)
 
     return (
-        <View style={tailwind`mx-4 mb-4`}>
+        <TouchableOpacity style={tailwind`mx-4 mb-4`} onPress={onPress}>
             <Image
                 source={{ uri: item.image_url }}
                 style={tailwind`w-full h-48 rounded-lg`}
@@ -40,6 +49,6 @@ const RestaurantItemCard = ({ item }) => {
                     <Text style={tailwind`text-gray-600 text-xs`}>{item.rating}</Text>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
