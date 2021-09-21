@@ -11,23 +11,25 @@ import { auth } from '../configs/firebase'
 
 const AccountScreen = () => {
     const user = useSelector(selectUser)
-    
+
     return (
         <Screen style={tailwind`flex-1 bg-white`}>
             <AppHead title={`Account`} icon="settings-outline" />
             <View style={tailwind`justify-center items-center`}>
-                <Image source={require('../assets/images/avatar.gif')} style={tailwind`w-48 h-40 rounded-full`} />
+                <View style={tailwind`rounded-full overflow-hidden w-48 h-48 mt-4`}>
+                    <Image source={require('../assets/images/avatar.gif')} style={tailwind`w-48 h-48`} />
+                </View>
                 <Text style={tailwind`mt-4 text-3xl font-bold`}>{user?.name}</Text>
                 <Text style={tailwind`text-lg text-indigo-900`}>{user?.email}</Text>
             </View>
             <View style={tailwind`mx-4 border-t border-t-2 mt-5 border-gray-100`}>
                 <Text style={tailwind`text-gray-800 mt-2 text-lg mb-2`}>Saved places</Text>
-                <SavedPlaces 
+                <SavedPlaces
                     title="Home"
                     text="Add home"
                     Icon={() => <AntDesign name="home" size={24} color="black" />}
                 />
-                <SavedPlaces 
+                <SavedPlaces
                     title="Word"
                     text="Add work"
                     Icon={() => <Ionicons name="md-briefcase-outline" size={24} color="black" />}
