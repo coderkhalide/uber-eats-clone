@@ -7,7 +7,7 @@ import { selectCartItems, selectTotalPrice, updateBusket } from '../redux/slices
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import colors from '../configs/colors';
 
-const MenuItems = ({ resName, image_url }) => {
+const MenuItems = ({ resName, resImage }) => {
     const cartItems = useSelector(selectCartItems)
     const dispatch = useDispatch()
     
@@ -32,13 +32,13 @@ const MenuItems = ({ resName, image_url }) => {
                 let oldfoods = [...oldArrays[resIndex].foods]
                 oldfoods.splice(menuIndex, 1)
                 oldArrays.splice(resIndex, 1)
-                let newArray = [...oldArrays, { foods: oldfoods, resName, resImage: image_url }]
+                let newArray = [...oldArrays, { foods: oldfoods, resName, resImage }]
                 dispatch(updateBusket(newArray))
             } else {
                 let oldArrays = [...cartItems]
                 let newFoodArray = [...oldArrays[resIndex].foods, foodItem]
                 oldArrays.splice(resIndex, 1)
-                let updatedResArray = [...oldArrays, { foods: newFoodArray, resName, resImage: image_url }]
+                let updatedResArray = [...oldArrays, { foods: newFoodArray, resName, resImage }]
                 dispatch(updateBusket(updatedResArray))
             }
         } else {
@@ -46,7 +46,7 @@ const MenuItems = ({ resName, image_url }) => {
             let newResFoodArray = [...oldArrays, {
                 foods: [{ ...foodItem }],
                 resName,
-                resImage: image_url
+                resImage
             }]
             dispatch(updateBusket(newResFoodArray))
         }
