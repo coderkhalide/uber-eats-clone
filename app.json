@@ -10,6 +10,15 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "plugins": [
+      [
+        "@stripe/stripe-react-native",
+        {
+          "merchantIdentifier": "merchant.com.stripe.react.native",
+          "enableGooglePay": false
+        }
+      ]
+    ],
     "updates": {
       "fallbackToCacheTimeout": 0
     },

@@ -8,6 +8,7 @@ export default {
     light: '#F9F9F9',
     dark: '#0c0c0c',
     denger: '#E81A1A',
+    slate: '#0A2540',
     title: '#0c0c0c',
     activeTintColor: "#000",
     inActiveTintColor: "#AEAEAE"
