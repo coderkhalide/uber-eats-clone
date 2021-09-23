@@ -9,7 +9,7 @@ import tailwind from 'tailwind-react-native-classnames';
 import { localRestaurants } from '../data/localRestaurants';
 import colors from '../configs/colors'
 
-const YELP_API_KEY = "5ImgyOOwWts5Te_wVwEr0mU1C32CfJY2yv7YIUj2Z3Umovr1wC3_vPuh7s86OA3cXR9n4WUYONdsHSBZqrRKidOh1XmcCRUjSqSZL9XlNoZNTm2aYY7FMdS4twJJYXYx";
+const YELP_API_KEY = "YELP_API_KEY";
 
 const HomeScreen = () => {
     const [restaurantData, setRestaurantData] = useState(localRestaurants)
