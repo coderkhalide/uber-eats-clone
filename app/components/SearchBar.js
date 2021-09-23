@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import tailwind from 'tailwind-react-native-classnames';
-import { GOOGLE_MAP_APIKEY } from '@env'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -20,7 +19,7 @@ const SearchBar = ({ setCity, city }) => {
                 returnKeyType={"search"}
                 onFail={error => console.error(error)}
                 query={{
-                    key: "AIzaSyBoGF2jXrtvMpp88UL4mLffTU0HDF5aAdE",
+                    key: "GOOGLE_MAP_APIKEY",
                     language: 'en',
                 }}
                 styles={{
