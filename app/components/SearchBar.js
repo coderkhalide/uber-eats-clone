@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, Alert } from 'react-native';
 import tailwind from 'tailwind-react-native-classnames';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { Ionicons } from '@expo/vector-icons';
@@ -17,9 +17,9 @@ const SearchBar = ({ setCity, city }) => {
                 minLength={2}
                 fetchDetails={true}
                 returnKeyType={"search"}
-                onFail={error => console.error(error)}
+                onFail={error => Alert.alert('Worning', error)}
                 query={{
-                    key: "GOOGLE_MAP_APIKEY",
+                    key: "",
                     language: 'en',
                 }}
                 styles={{
